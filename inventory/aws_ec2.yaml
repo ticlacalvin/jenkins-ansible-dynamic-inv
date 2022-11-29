@@ -1,7 +1,7 @@
 plugin: aws_ec2
 
-aws_access_key: AKIAUGJYG44NEY6MWHXX
-aws_secret_key: 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
+#aws_access_key: AKIAUGJYG44NEY6MWHXX
+#aws_secret_key: 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
 
 regions:
   - us-east-1
