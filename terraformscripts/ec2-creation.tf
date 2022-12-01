@@ -43,7 +43,7 @@ resource "aws_security_group" "Nexus-SG" {
 
 resource "aws_instance" "AWSEC2Instance" {
   ami           = "ami-05723c3b9cf4bf4ff" # "ami-0127d62154efde733"
-  instance_type =  "t2.micro" # "t2.micro"
+  instance_type =  "t2.micro"
   key_name      = "realkeypair"
   
   vpc_security_group_ids = [
