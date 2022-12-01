@@ -8,7 +8,7 @@ resource "aws_instance" "AWSEC2Instance"{
      instance_type = "t2.micro"
      security_groups = ["Nexus-SG"]
      key_name        = "realkeypair"
-     tags{
+     tags = {
         Name = "tomcatserver"
      }
 }
