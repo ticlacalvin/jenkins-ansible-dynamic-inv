@@ -15,7 +15,7 @@ resource "aws_instance" "AWSEC2Instance"{
 */
 
  variable "awsprops" {
-    type = "map"
+    type = map
     default = {
     region = "us-east-1"
     vpc = "vpc-05e24a8891f346a4f"
