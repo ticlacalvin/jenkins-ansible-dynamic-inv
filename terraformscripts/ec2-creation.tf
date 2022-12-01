@@ -56,7 +56,7 @@ resource "aws_instance" "AWSEC2Instance" {
   ami           = "ami-05723c3b9cf4bf4ff"
   instance_type =  "t2.micro"
   key_name      = "realkeypair"
-  subnet_id = aws_subnet.PubSN_Devops.id
+  #subnet_id = aws_subnet.PubSN_Devops.id
   vpc_security_group_ids = [
    aws_security_group.Nexus-SG.id
   ]
