@@ -40,9 +40,20 @@ resource "aws_security_group" "Nexus-SG" {
 
 }
 
+resource "aws_vpc" "devops-vpc" {  
+   cidr_block           = "10.0.0.0/16"
+   instance_tenancy     = "default"  
+   enable_dns_support   = "true"
+   enable_dns_hostnames = "true"  
+   enable_classiclink   = "false"
+     tags = {    
+        Name = "devops-vpc"  
+  }
+}
+   
 
 resource "aws_instance" "AWSEC2Instance" {
-  ami           = "ami-05723c3b9cf4bf4ff" # "ami-0127d62154efde733"
+  ami           = "ami-05723c3b9cf4bf4ff"
   instance_type =  "t2.micro"
   key_name      = "realkeypair"
   
