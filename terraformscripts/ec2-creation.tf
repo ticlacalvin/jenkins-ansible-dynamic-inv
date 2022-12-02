@@ -16,11 +16,14 @@ provider "aws" {
   region = lookup(var.awsprops, "region")
 }
 
-resource "aws_security_group" "Nexus-SG" {
+
+
+resource "aws_security_group" "project-iac-sg" {
   name = lookup(var.awsprops, "secgroupname")
   description = lookup(var.awsprops, "secgroupname")
   vpc_id = lookup(var.awsprops, "vpc")
-   
+ 
+  
   // To Allow SSH Transport
   ingress {
     from_port = 22
