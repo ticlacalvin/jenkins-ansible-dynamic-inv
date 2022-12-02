@@ -1,27 +1,11 @@
-/*provider "aws" {
-   region  = "us-east-1" 
-}
-
-resource "aws_instance" "AWSEC2Instance"{
-     count   = 1
-     ami = "ami-05723c3b9cf4bf4ff"
-     instance_type = "t2.micro"
-     security_groups = ["Nexus-SG"]
-     key_name        = "realkeypair"
-     tags = {
-        Name = "tomcatserver"
-     }
-}
-*/
-
  variable "awsprops" {
     type = map
     default = {
     region = "us-east-1"
-    vpc = "vpc-05e24a8891f346a4f"
+    vpc = "vpc-05e24a8891f346a4f" #vpc-05e24a8891f346a4f / devops-vpc
     ami = "ami-05723c3b9cf4bf4ff"
     itype = "t2.micro"
-    subnet = "subnet-00711afa00bb04391"
+    subnet = "subnet-00711afa00bb04391" #subnet-00711afa00bb04391 / PubSN_Devops
     publicip = true
     keyname = "realkeypair"
     secgroupname = "Nexus-SG"
@@ -42,7 +26,7 @@ resource "aws_security_group" "Nexus-SG" {
     from_port = 22
     protocol = "tcp"
     to_port = 22
-    cidr_blocks = ["10.0.0.0/16"]
+    cidr_blocks = ["0.0.0.0/0"]
   }
    
    // To Allow Port 80 Transport
@@ -50,14 +34,14 @@ resource "aws_security_group" "Nexus-SG" {
     from_port = 80
     protocol = ""
     to_port = 80
-    cidr_blocks = ["10.0.0.0/16"]
+    cidr_blocks = ["0.0.0.0/0"]
   }
    
   egress {
     from_port       = 0
     to_port         = 0
     protocol        = "-1"
-    cidr_blocks     = ["10.0.0.0/16"]
+    cidr_blocks     = ["0.0.0.0/0"]
   }
 
   lifecycle {
@@ -68,15 +52,16 @@ resource "aws_security_group" "Nexus-SG" {
 resource "aws_instance" "AWSEC2Instance" {
   ami = lookup(var.awsprops, "ami")
   instance_type = lookup(var.awsprops, "itype")
-  subnet_id = lookup(var.awsprops, "subnet") #FFXsubnet2
+  subnet_id = lookup(var.awsprops, "subnet")
   associate_public_ip_address = lookup(var.awsprops, "publicip")
   key_name = lookup(var.awsprops, "keyname")
+   
  
    
 vpc_security_group_ids = [
     aws_security_group.AWSEC2Instance-Nexus-SG.id
   ]
-  root_block_device {
+ /* root_block_device {
     delete_on_termination = true
     iops = 150
     volume_size = 10
@@ -92,7 +77,7 @@ tags = {
 output "ec2instance" {
   value = aws_instance.AWSEC2Instance.public_ip
 }
-   
+*/   
  }
 
 
@@ -103,56 +88,3 @@ output "ec2instance" {
 
 
 
-/*
-provider "aws" {
-  region = "us-east-1"
-}
-
-
-resource "aws_security_group" "Nexus-SG" {
-
-  description = "Allow ssh inbound traffic"
-
-  ingress {
-    description = "ssh"
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    cidr_blocks = ["10.0.0.0/16"]
-  }
-
-  egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["10.0.0.0/16"]
-  }
-
-}
-
-resource "aws_vpc" "devops-vpc" {  
-   cidr_block           = "10.0.0.0/16"
-   instance_tenancy     = "default"  
-   enable_dns_support   = "true"
-   enable_dns_hostnames = "true"  
-   enable_classiclink   = "false"
-     tags = {    
-        Name = "devops-vpc"  
-  }
-}
-   
-
-resource "aws_instance" "AWSEC2Instance" {
-  ami           = "ami-05723c3b9cf4bf4ff"
-  instance_type =  "t2.micro"
-  key_name      = "realkeypair"
-  #subnet_id = aws_subnet.PubSN_Devops.id
-  vpc_security_group_ids = [
-   aws_security_group.Nexus-SG.id
-  ]
-
-  tags = {
-    Name = "tomcatserver"
-  }
-}
-*/
