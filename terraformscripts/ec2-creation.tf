@@ -18,7 +18,7 @@ provider "aws" {
 
 
 
-resource "aws_security_group" "project-iac-sg" {
+resource "aws_security_group" "Nexus-SG" {
   name = lookup(var.awsprops, "secgroupname")
   description = lookup(var.awsprops, "secgroupname")
   vpc_id = lookup(var.awsprops, "vpc")
