@@ -58,6 +58,10 @@ resource "aws_instance" "AWSEC2Instance" {
   subnet_id = lookup(var.awsprops, "subnet")
   associate_public_ip_address = lookup(var.awsprops, "publicip")
   key_name = lookup(var.awsprops, "keyname")
+ 
+tags = {
+    Name ="tomcatserver"
+  }
    
  
    
