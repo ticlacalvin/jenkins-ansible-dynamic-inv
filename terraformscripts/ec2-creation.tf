@@ -35,7 +35,7 @@ resource "aws_security_group" "Nexus-SG1" {
    // To Allow Port 80 Transport
   ingress {
     from_port = 80
-    protocol = ""
+    protocol = "tcp"
     to_port = 80
     cidr_blocks = ["0.0.0.0/0"]
   }
