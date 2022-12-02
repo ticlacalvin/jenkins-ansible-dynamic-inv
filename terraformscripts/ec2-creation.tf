@@ -61,9 +61,6 @@ resource "aws_instance" "AWSEC2Instance" {
    
  
    
-vpc_security_group_ids = [
-    aws_security_group.AWSEC2Instance-Nexus-SG.id
-  ]
  /* root_block_device {
     delete_on_termination = true
     iops = 150
