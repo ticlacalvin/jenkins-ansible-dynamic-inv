@@ -72,7 +72,7 @@ tags = {
   
   depends_on = [ aws_security_group.AWSEC2Instance-Nexus-SGS ]
    
-output "ec2instance" {
+output "AWSEC2Instance" {
   value = aws_instance.AWSEC2Instance.public_ip
 }
   
