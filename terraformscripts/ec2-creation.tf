@@ -25,7 +25,7 @@ resource "aws_security_group" "Nexus-SG1" {
   // To Allow SSH Transport
   ingress {
     from_port = 22
-    protocol = "tcp"
+    protocol = "ssh"
     to_port = 22
     cidr_blocks = ["0.0.0.0/0"]
   }
