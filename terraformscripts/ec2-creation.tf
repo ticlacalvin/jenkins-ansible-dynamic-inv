@@ -71,10 +71,6 @@ tags = {
     volume_size = 10
     volume_type = "gp2"
   }
-   
-tags = {
-    Name ="tomcatserver"
-  }
   
   depends_on = [ aws_security_group.AWSEC2Instance-Nexus-SG1 ]
    
