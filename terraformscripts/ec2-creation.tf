@@ -8,7 +8,7 @@
     subnet = "subnet-00711afa00bb04391" #subnet-00711afa00bb04391 / PubSN_Devops
     publicip = true
     keyname = "realkeypair"
-    secgroupname = "Nexus-SG"
+    secgroupname = "Nexus-SGS"
   }
 }  
 
@@ -16,7 +16,7 @@ provider "aws" {
   region = lookup(var.awsprops, "region")
 }
 
-resource "aws_security_group" "Nexus-SG" {
+resource "aws_security_group" "Nexus-SGS" {
   name = lookup(var.awsprops, "secgroupname")
   description = lookup(var.awsprops, "secgroupname")
   vpc_id = lookup(var.awsprops, "vpc")
@@ -63,19 +63,19 @@ tags = {
    
  
    
- /* root_block_device {
+  root_block_device {
     delete_on_termination = true
     iops = 150
     volume_size = 10
     volume_type = "gp2"
   }
   
-  depends_on = [ aws_security_group.AWSEC2Instance-Nexus-SG ]
+  depends_on = [ aws_security_group.AWSEC2Instance-Nexus-SGS ]
    
 output "ec2instance" {
   value = aws_instance.AWSEC2Instance.public_ip
 }
-*/   
+  
  }
 
 
