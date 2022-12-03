@@ -62,7 +62,7 @@ tags = {
   }
    
  
-   
+ /*  
   root_block_device {
     delete_on_termination = true
     iops = 150
@@ -75,7 +75,7 @@ tags = {
 output "AWSEC2Instance" {
   value = aws_instance.AWSEC2Instance.public_ip
 }
-  
+  */
  }
 
 
