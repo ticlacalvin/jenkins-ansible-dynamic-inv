@@ -16,8 +16,6 @@ provider "aws" {
   region = lookup(var.awsprops, "region")
 }
 
-
-
 resource "aws_security_group" "Nexus-SG1" {
   name = lookup(var.awsprops, "secgroupname")
   description = lookup(var.awsprops, "secgroupname")
