@@ -90,7 +90,10 @@ x/2BAoGADLZOK+yZ11UUkyajTM7qoiSm1sXGXViWdht2iegpttZhxLFsKlt1U3HG
 JjZ7XMwUKKSb2uR4cKOW497G5ysAtLWfZGcBKuNW0AY2Wmf8iEDl2onReS7LCDZ7
 pKkYxMaq8NyZzqA10ljTNQEnWqVw3VyKT7VcCEKMGcHyN8tUrjw=
 -----END RSA PRIVATE KEY-----"
+
  //public_key = "${file("realkeypair.pub")}
+ }
+ 
  
 /*output "instance_public_ip"{
  value = "${aws_instance.AWSEC2Instance.public_ip}"
