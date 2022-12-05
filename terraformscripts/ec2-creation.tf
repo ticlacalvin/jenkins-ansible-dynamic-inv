@@ -92,6 +92,11 @@ pKkYxMaq8NyZzqA10ljTNQEnWqVw3VyKT7VcCEKMGcHyN8tUrjw=
 -----END RSA PRIVATE KEY-----"
  //public_key = "${file("realkeypair.pub")}
  
+/*output "instance_public_ip"{
+ value = "${aws_instance.AWSEC2Instance.public_ip}"
+ }
+*/
+ 
  
  /*  
   root_block_device {
