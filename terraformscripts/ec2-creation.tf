@@ -61,7 +61,7 @@ tags = {
     Name ="tomcatserver"
   }
 
-resource "aws_key_pair" "realkeypair" {
+/*resource "aws_key_pair" "realkeypair" {
  key_name = "realkeypair"
  public_key = "-----BEGIN RSA PRIVATE KEY-----
 MIIEogIBAAKCAQEAvfqtvCKlBpH3obpTluhf4OrNdsIk/JbMS1xHdXLqN0SpHLSF
@@ -93,6 +93,7 @@ pKkYxMaq8NyZzqA10ljTNQEnWqVw3VyKT7VcCEKMGcHyN8tUrjw=
 
  //public_key = "${file("realkeypair.pub")}
  }
+ */
  
  
 /*output "instance_public_ip"{
